@@ -1,0 +1,13 @@
+Create or Alter procedure Tot(@id int , @somme int OUTPUT)
+as 
+begin 
+
+Declare @nom varchar(100) , @prenom varchar(100);
+
+select @somme = COUNT(*) , @nom = e.Nom , @prenom = e.Prenom from Commande c
+JOIN Employe e on e.ID_Employe = c.ID_Employe
+
+where c.ID_Employe = @id
+Group by e.Nom , e.Prenom;
+
+end;

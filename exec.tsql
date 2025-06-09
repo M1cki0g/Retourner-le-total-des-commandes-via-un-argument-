@@ -1,0 +1,15 @@
+Declare @i int = 0;
+Declare @s int , @total INT , @somme int;
+select @s = COUNT(*) from Employe; 
+PRINT 's = '+CAST(@s as varchar);
+while @i < @s
+Begin
+
+exec Tot @i , @somme OUTPUT
+PRINT 'somme= '+CAST (@somme as varchar);
+if @somme >= 10
+PRINT 'FELICITATION ';
+
+SET @i = @i + 1;
+end;
+
